@@ -1,0 +1,108 @@
+08-27-2019:
+I have been tasked with developing a text-based game
+Requirements:
+	1. It must be different from the game Zed made in exercise 43
+	2. Use more than one file, and use import to use them.
+	3. Use one class per room and give the classes names that fit their
+           purpose (like GoldRoom, KoiPondRoom)
+	4. The runner will need to know about these rooms, so make a class
+           that runs them and knows about them. There're plenty of ways to
+           do this, but consider having each room return what room is next
+           or setting a variable of what room is next
+
+Object-Oriented Analysis and Design
+1. Write about the problem
+   You awaken in a field one day. You remember nothing. Not your name,
+   your past, nothing. There is a note attached to your forhead. it is
+   taunting you to regain your memories. you must collect resources 
+   and battle your way into the forest of memories to regain your past self.
+   
+   Rooms:
+      Starting Field - an open field with a `note`. you can pick it up and read it.
+      Forest Entrance - the entrance to the forest there is a `sword` stabbed into the tree.
+      Goblins bridge - a goblin pops out at you. he is a little deranged looking, after a brief conversation you see he is not dangerous. he poses a riddle. if you solve it he will give you a prize. you can choose to accept or attack him
+      accepting (if you get the riddle correctly you get a potion, else you die)
+      attack the goblin uses his goblin magic and you are thrust into an early battle
+      Forest Trail - you are ona trail and approached by a wolf. it attacks you! Wolf drops (armor if battle won)
+      Forest Opening - you enter an opening int he forest. there is a potion there. a appears out of no where 0_o you can either battle it or flee for your life. drops key to shrine of memories
+      Entrance to the cave of memories - you are confronted by the goblin again. to pass you must answer another of his riddle.
+      Shrine of memories entrance - must have key to enter.
+      Shrine of memories - you regain your memories. 
+
+
+Key Concepts:
+   Player
+   Enemy
+   Goblin (NPC)
+   Health
+   Inventory
+   Battle
+   Items
+   Scene
+   Map
+   Engine 
+
+Class Hierarchy
+* Scene
+  + name
+  + Items
+  + Actions
+  + Next scene
+  + NPC
+  + Enemy
+  - Enter
+  * Starting Field
+  * Forest Entrance
+  * Goblins Bridge
+  * Forest Trail
+  * Forest Opening
+  * Entrance to cave of memories
+  * Entrance to shrine of memories
+  * Shrine of Memories 
+* Battle system
+  + Player
+  + Enemy
+  - start
+  - end
+* Inventory
+  + Items
+  + Capacity
+  - add item
+  - remove item
+* Player 
+  + Inventory
+  + HP
+  + ATK
+  + DEF
+  + Equipped Item
+  - Pick Up Item
+  - Drop Item
+  - Use Item
+  - Attack
+  - Flee
+* Enemy
+  + HP
+  + ATK
+  + DEF
+  * Wolf
+  * Mysterious man
+* NPC
+  + Name
+  + Dialogue
+  + Item
+* Map
+  + Scenes
+* Engine
+  - Play
+* Item
+  + Name
+  + Description
+  - Use
+    this class will override the base use class
+    ex for a potion the use will add 10 hp to the user of the potion
+  - Equip
+  - Unequip
+  - Read
+  * Potion
+  * Sword
+  * Note
